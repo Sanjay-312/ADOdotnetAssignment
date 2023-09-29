@@ -48,6 +48,16 @@ namespace ADOdotNetAssignment
             Console.WriteLine("data inserted successfully");
             connection.Close();
         }
+        public static void update_data()
+        {
+            string query = @"update EMPLOYEE_PAY_ROLL set SALARY=3000000 where EMP_NAME='Teresa'";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            connection.Open();
+            cmd.ExecuteNonQuery();
+            Console.WriteLine("--------------------");
+            Console.WriteLine("data updated successfully");
+            connection.Close();
+        }
 
 
 
