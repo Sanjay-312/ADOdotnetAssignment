@@ -33,6 +33,21 @@ namespace ADOdotNetAssignment
             connection.Close();
 
         }
+        public static void insert_data()
+        {
+            string query = @"insert into EMPLOYEE_PAY_ROLL values('Pavan',9456185698,'Mumbai',20000,'2021-09-15'), 
+                                                         ('Kumar',9256489563,'Chennai',25000,'2020-09-15'),
+                                                         ('Sanjay',8561564895,'Pune',28000,'2019-09-15'),
+                                                         ('Chandu',9648956987,'Hyderabad',35000,'2021-05-5'),
+                                                         ('Vamsi',1265489565,'Kochi',18000,'2022-08-03'),
+                                                         ('Raghava',8956478596,'Kerala',42000,'2021-12-13')";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            connection.Open();
+            cmd.ExecuteNonQuery();
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("data inserted successfully");
+            connection.Close();
+        }
 
 
 
