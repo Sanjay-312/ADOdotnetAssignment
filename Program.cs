@@ -5,7 +5,8 @@
         static void Main(string[] args)
         {
             Console.WriteLine("welcome to ADO .net Assignment");
-            PayRollOperations.create_database();
+            //PayRollOperations.create_database();
+            PayRollOperations.create_table();
             
         }
     }
