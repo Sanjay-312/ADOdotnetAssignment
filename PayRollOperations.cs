@@ -59,6 +59,39 @@ namespace ADOdotNetAssignment
             connection.Close();
         }
 
+        public static void get_emp_in_date_range()
+        {
+            using (connection)
+            {
+                EmployeeModel employee = new EmployeeModel();
+
+                string query = @"select * from EMPLOYEE_PAY_ROLL where START_DATE between CAST('2019-01-01' as date) and getdate()";
+
+                SqlCommand cmd = new SqlCommand(query, connection);
+                connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    Console.WriteLine("-----data-----");
+                    while (reader.Read())
+                    {
+                        employee.emp_id = Convert.ToInt32(reader["EMP_ID"]);
+                        employee.emp_name = Convert.ToString(reader["EMP_NAME"]);
+                        employee.phone_number = Convert.ToInt64(reader["PHONE_NUM"]);
+                        employee.city = Convert.ToString(reader["CITY"]);
+                        employee.salary = Convert.ToInt32(reader["SALARY"]);
+                        employee.start_date = Convert.ToDateTime(reader["START_DATE"]);
+
+                        Console.WriteLine("{0}\n{1}\n{2}\n{3}\n{4}\n{5}\n", employee.emp_id, employee.emp_name, employee.phone_number, employee.city, employee.salary, employee.start_date);
+                    }
+                }
+                connection.Close();
+            }
+
+
+
+        }
+
 
 
     }

@@ -8,7 +8,8 @@
             //PayRollOperations.create_database();
             //PayRollOperations.create_table();
             //PayRollOperations.insert_data();
-            PayRollOperations.update_data();
+            //PayRollOperations.update_data();
+            PayRollOperations.get_emp_in_date_range();
             
         }
     }
